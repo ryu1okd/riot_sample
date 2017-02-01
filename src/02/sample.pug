@@ -1,0 +1,21 @@
+sample
+  h3 { message }
+  div
+    button(onclick='{player1_win}' value="1") 1
+    button(onclick='{player1_win}' value="2") 2
+  ul
+    li(each='{game_result in game_results}') {game_result}
+
+  script(type="text/livescript").
+    @message = 'player1 vs player2'
+    @game_results = [true, false]
+    @player1_win = (e) ->
+      console.log e.item
+      console.log \hogehoge
+      @game_results.push e
+
+
+  style.
+    :scope { front-size: 2rem }
+    h3 { color: #444 }
+    ul { color: #999 }
